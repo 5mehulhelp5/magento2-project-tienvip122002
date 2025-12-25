@@ -5,13 +5,12 @@
     <head>
         <title>All Movies</title>
         <css src="Magenest_Movie::css/movie.css"/>
-
     </head>
     <body>
         <referenceContainer name="content">
-
             <block class="Magenest\Movie\Block\MovieList"
-                   name="magenest.movie.list"/>
+                   name="magenest.movie.list"
+                   template="Magenest_Movie::movies.phtml"/>
         </referenceContainer>
     </body>
 </page>
