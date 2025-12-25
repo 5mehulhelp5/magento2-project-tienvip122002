@@ -1,0 +1,44 @@
+<?php /** @var \Magenest\Movie\Block\MovieList $block */ ?>
+<div class="mn-movie-wrap">
+    <h1 class="mn-title">All Movies</h1>
+
+    <?php $movies = $block->getMovies(); ?>
+    <?php if (!$movies): ?>
+        <div class="message info empty"><span>No movies found.</span></div>
+    <?php else: ?>
+        <?php foreach ($movies as $movie): ?>
+            <div class="mn-card">
+                <div class="mn-card__header">
+                    <div class="mn-card__name"><?= $block->escapeHtml($movie['name']) ?></div>
+                    <div class="mn-badges">
+                        <?php if ($movie['rating'] !== null): ?>
+                            <span class="mn-badge">Rating: <?= (int)$movie['rating'] ?></span>
+                        <?php endif; ?>
+                        <?php if (!empty($movie['director_name'])): ?>
+                            <span class="mn-badge">Director: <?= $block->escapeHtml($movie['director_name']) ?></span>
+                        <?php else: ?>
+                            <span class="mn-badge mn-badge--muted">Director: (none)</span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <?php if (!empty($movie['description'])): ?>
+                    <div class="mn-desc"><?= $block->escapeHtml($movie['description']) ?></div>
+                <?php endif; ?>
+
+                <div class="mn-actors">
+                    <div class="mn-actors__label">Actors:</div>
+                    <?php if (!empty($movie['actors'])): ?>
+                        <ul class="mn-actors__list">
+                            <?php foreach ($movie['actors'] as $actorName): ?>
+                                <li><?= $block->escapeHtml($actorName) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else: ?>
+                        <div class="mn-actors__empty">(no actors)</div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>

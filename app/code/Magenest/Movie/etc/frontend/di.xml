@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Cart page renderer (shopping cart) - Uncomment if you want to show child product in cart page -->
+    <type name="Magento\ConfigurableProduct\Block\Cart\Item\Renderer\Configurable">
+        <plugin name="magenest_use_child_name_image_cart"
+                type="Magenest\Movie\Plugin\Checkout\UseChildInCartRenderer"/>
+    </type>
+
+    <!-- Mini cart popup (customer-data) -->
+    <type name="Magento\Checkout\CustomerData\DefaultItem">
+        <plugin name="magenest_minicart_use_child_name_image"
+                type="Magenest\Movie\Plugin\MiniCart\UseChildForConfigurableItem"
+                sortOrder="999"/>
+    </type>
+
+</config>

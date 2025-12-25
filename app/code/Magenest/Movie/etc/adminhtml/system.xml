@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <!-- TAB -->
+        <tab id="magenest" translate="label" sortOrder="500">
+            <label>Magenest</label>
+        </tab>
+
+        <!-- SECTION (sub-tab Movie) -->
+        <section id="movie" translate="label" type="text"
+                 sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Movie</label>
+            <tab>magenest</tab>
+            <resource>Magenest_Movie::config_movie</resource>
+
+            <group id="moviepage" translate="label" type="text"
+                   sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Movie</label>
+
+                <!-- 1) Text Field -->
+                <field id="text_field" translate="label"
+                       type="text" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Field</label>
+                </field>
+
+                <!-- 2) Yes/No_Field_abcd -->
+                <field id="is_enabled" translate="label"
+                       type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Yes/No_Field_abcd</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<span style="color:#d00;font-weight:600;">Notice the color</span>]]></comment>
+                </field>
+
+                <!-- 3) Custom Select Field -->
+                <field id="source_model_test" translate="label"
+                       type="select" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Select Field</label>
+                    <source_model>Magenest\Movie\Model\Config\Source\Relation</source_model>
+                </field>
+
+                <!-- 4) Rows in table "magenest_movie" -->
+                <field id="rows_movie" translate="label"
+                       type="text" sortOrder="40"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Rows in table "magenest_movie"</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\System\Config\Form\Field\RowCount</frontend_model>
+                    <comment><![CDATA[read-only]]></comment>
+                </field>
+
+                <!-- 5) Rows in table "magenest_actor" (depends custom select = show(1)) -->
+                <field id="rows_actor" translate="label"
+                       type="text" sortOrder="50"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Rows in table "magenest_actor"</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\System\Config\Form\Field\RowCount</frontend_model>
+
+                    <depends>
+                        <field id="source_model_test">1</field>
+                    </depends>
+
+                    <comment><![CDATA[read-only, only visible when Custom Select Field = show]]></comment>
+                </field>
+
+
+                <!-- 6) Button Field (reload page) -->
+                <field id="reload_button" translate="label"
+                       type="button" sortOrder="60"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Field</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\System\Config\Form\Field\ReloadButton</frontend_model>
+                    <comment><![CDATA[When click on this button, reload page.]]></comment>
+                </field>
+
+            </group>
+        </section>
+
+    </system>
+</config>

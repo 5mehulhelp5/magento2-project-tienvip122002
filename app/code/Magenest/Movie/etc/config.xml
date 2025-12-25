@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config.xsd">
+    <default>
+        <!-- section = movie, group = moviepage -->
+        <movie>
+            <moviepage>
+                <text_field>I m a text field</text_field>
+                <is_enabled>1</is_enabled>
+<!--                <source_model_test>1</source_model_test>-->
+            </moviepage>
+        </movie>
+    </default>
+</config>
