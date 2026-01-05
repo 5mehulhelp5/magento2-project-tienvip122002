@@ -3,7 +3,7 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magenest\Movie\Block\Adminhtml\Movie\Edit" name="magenest.movie.edit"/>
+            <uiComponent name="magenest_movie_form"/>
         </referenceContainer>
 
 
