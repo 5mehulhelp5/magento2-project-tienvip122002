@@ -17,6 +17,6 @@ class ForceMovieRatingZero implements ObserverInterface
         }
 
         // ép rating = 0 trước khi save DB
-        $movie->setData('rating', 0);
+        // $movie->setData('rating', 0);
     }
 }

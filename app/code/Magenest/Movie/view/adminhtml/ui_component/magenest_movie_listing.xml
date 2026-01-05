@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">magenest_movie_listing.magenest_movie_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Movie</label>
+            </button>
+        </buttons>
+        <spinner>magenest_movie_columns</spinner>
+        <deps>
+            <dep>magenest_movie_listing.magenest_movie_listing_data_source</dep>
+        </deps>
+    </settings>
+
+    <!-- Data Source -->
+    <dataSource name="magenest_movie_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">movie_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="MagenestMovieGridDataProvider" name="magenest_movie_listing_data_source">
+            <settings>
+                <requestFieldName>movie_id</requestFieldName>
+                <primaryFieldName>movie_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <!-- Listing Toolbar (Filter, Paging...) -->
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <!-- Cột dữ liệu -->
+    <columns name="magenest_movie_columns">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <!-- Provider phải trỏ tới actions column -->
+                    <item name="provider" xsi:type="string">magenest_movie_listing.magenest_movie_listing.magenest_movie_columns.actions</item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <!-- action name -->
+                        <item name="0" xsi:type="string">edit</item>
+                        <!-- rowIndex -->
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <column name="movie_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">IDs</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="name" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        
+        <!-- CỘT RATING CUSTOM: Hiển thị ngôi sao -->
+        <column name="rating" class="Magenest\Movie\Ui\Component\Listing\Column\Rating" sortOrder="30">
+            <settings>
+                <label translate="true">Rating</label>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+                <filter>textRange</filter>
+            </settings>
+        </column>
+
+
+        <column name="director_id" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Director Id</label>
+            </settings>
+        </column>
+
+        <actionsColumn name="actions"
+                   class="Magenest\Movie\Ui\Component\Listing\Column\MovieActions"
+                   sortOrder="200">
+            <settings>
+                <indexField>movie_id</indexField>
+                <label translate="true">Actions</label>
+            </settings>
+        </actionsColumn>
+        
+        <!-- Actions Column (Edit/Delete) -->
+        <!-- <actionsColumn name="actions" class="Magento\Ui\Component\Listing\Columns\Actions" sortOrder="200">
+           <settings>
+               <indexField>movie_id</indexField>
+               <label translate="true">Actions</label>
+           </settings>
+       </actionsColumn> -->
+    </columns>
+</listing>
