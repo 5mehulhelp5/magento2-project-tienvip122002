@@ -32,5 +32,30 @@
              parent="Magenest_Movie::movie_root"
              action="magenest_movie/actor/index"
              resource="Magenest_Movie::actor_manage"/>
+
+
+          
+          <add id="Magenest_Movie::section_root"
+               title="Section"
+               module="Magenest_Movie"
+               sortOrder="40"
+               parent="Magenest_Movie::movie_root"
+               resource="Magenest_Movie::section_root"/>
+
+          <add id="Magenest_Movie::1st"
+               title="1st"
+               module="Magenest_Movie"
+               sortOrder="10"
+               action="magenest_movie/container1/index"
+               parent="Magenest_Movie::section_root"
+               resource="Magenest_Movie::1st"/>
+
+          <add id="Magenest_Movie::2nd"
+               title="2nd"
+               module="Magenest_Movie"
+               sortOrder="20"
+               action="magenest_movie/container2/index"
+               parent="Magenest_Movie::section_root"
+               resource="Magenest_Movie::2nd"/>
     </menu>
 </config>

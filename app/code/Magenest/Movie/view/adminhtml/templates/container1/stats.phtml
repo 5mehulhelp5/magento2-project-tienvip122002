@@ -1,0 +1,24 @@
+<?php
+/** @var \Magenest\Movie\Block\Adminhtml\Section1\Stats $block */
+?>
+
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Module Statistics')) ?></span>
+    </div>
+
+    <div class="admin__page-section-content">
+        <table class="admin__table-secondary">
+            <tbody>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Số lượng module đang cài trong Magento')) ?></th>
+                    <td><strong><?= (int) $block->getTotalModules() ?></strong></td>
+                </tr>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Số module thuộc Vendor khác (không phải Magento)')) ?></th>
+                    <td><strong><?= (int) $block->getNonMagentoModules() ?></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
