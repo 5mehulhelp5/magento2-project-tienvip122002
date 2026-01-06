@@ -14,6 +14,12 @@
                     </resource>
                 </resource>
 
+
+                <resource id="Magenest_Movie::section_root" title="Section" sortOrder="40">
+                    <resource id="Magenest_Movie::1st" title="1st" sortOrder="10"/>
+                    <resource id="Magenest_Movie::2nd" title="2nd" sortOrder="20"/>
+                </resource>
+
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">

@@ -1,0 +1,36 @@
+<?php
+/** @var \Magenest\Movie\Block\Adminhtml\Container2\Stats $block */
+?>
+
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Store Entities Overview')) ?></span>
+    </div>
+
+    <div class="admin__page-section-content">
+        <table class="admin__table-secondary">
+            <tbody>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Customers')) ?></th>
+                    <td><strong><?= (int) $block->getCustomersCount() ?></strong></td>
+                </tr>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Products')) ?></th>
+                    <td><strong><?= (int) $block->getProductsCount() ?></strong></td>
+                </tr>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Orders')) ?></th>
+                    <td><strong><?= (int) $block->getOrdersCount() ?></strong></td>
+                </tr>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Invoices')) ?></th>
+                    <td><strong><?= (int) $block->getInvoicesCount() ?></strong></td>
+                </tr>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Credit Memos')) ?></th>
+                    <td><strong><?= (int) $block->getCreditmemosCount() ?></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
