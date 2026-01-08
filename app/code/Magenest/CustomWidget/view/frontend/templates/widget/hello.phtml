@@ -1,0 +1,10 @@
+<?php /** @var \Magenest\CustomWidget\Block\Widget\Hello $block */ ?>
+<div class="magenest-hello-widget">
+    <?php if ($block->getTitle()): ?>
+        <h3><?= $block->escapeHtml($block->getTitle()) ?></h3>
+    <?php endif; ?>
+
+    <?php if ($block->getMessage()): ?>
+        <p><?= $block->escapeHtml($block->getMessage()) ?></p>
+    <?php endif; ?>
+</div>

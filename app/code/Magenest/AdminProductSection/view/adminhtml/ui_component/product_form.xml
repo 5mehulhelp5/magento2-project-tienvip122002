@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <fieldset name="container_magenest_info">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Magenest First Section</item>
+                <item name="componentType" xsi:type="string">fieldset</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">0</item>
+            </item>
+        </argument>
+
+        <!-- Optional info block -->
+        <container name="magenest_notice_container">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="sortOrder" xsi:type="number">5</item>
+                </item>
+            </argument>
+
+            <htmlContent name="magenest_notice">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="componentType" xsi:type="string">htmlContent</item>
+                    </item>
+                </argument>
+
+                <block class="Magento\Backend\Block\Template" name="magenest_info_block">
+                    <arguments>
+                        <argument name="template" xsi:type="string">Magenest_AdminProductSection::info.phtml</argument>
+                    </arguments>
+                </block>
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>

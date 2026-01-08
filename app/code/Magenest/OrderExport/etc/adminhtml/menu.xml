@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Thêm vào menu Sales -->
+        <add id="Magenest_OrderExport::export" 
+             title="Export Order Items" 
+             translate="title" 
+             module="Magenest_OrderExport" 
+             sortOrder="100" 
+             parent="Magento_Sales::sales" 
+             action="orderexport/export/index" 
+             resource="Magenest_OrderExport::export"/>
+    </menu>
+</config>
