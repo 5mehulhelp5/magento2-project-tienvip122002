@@ -1,0 +1,80 @@
+<?php
+/**
+ * @var \Magenest\OrderExport\Block\Adminhtml\Export $block
+ */
+?>
+
+<div class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Export Order Items to CSV')) ?></span>
+    </div>
+
+    <div class="admin__page-section-content">
+        <form id="export-form" action="<?= $block->escapeUrl($block->getExportUrl()) ?>" method="post">
+            <?= $block->getBlockHtml('formkey') ?>
+
+            <fieldset class="admin__fieldset">
+                <legend class="admin__legend">
+                    <span><?= $block->escapeHtml(__('Filter Options')) ?></span>
+                </legend>
+
+                <div class="admin__field">
+                    <label class="admin__field-label" for="from_date">
+                        <span><?= $block->escapeHtml(__('From Date')) ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <input type="date" 
+                               id="from_date" 
+                               name="from_date" 
+                               class="admin__control-text" />
+                    </div>
+                </div>
+
+                <div class="admin__field">
+                    <label class="admin__field-label" for="to_date">
+                        <span><?= $block->escapeHtml(__('To Date')) ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <input type="date" 
+                               id="to_date" 
+                               name="to_date" 
+                               class="admin__control-text" />
+                    </div>
+                </div>
+
+                <div class="admin__field">
+                    <label class="admin__field-label" for="status">
+                        <span><?= $block->escapeHtml(__('Order Status')) ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <select id="status" name="status" class="admin__control-select">
+                            <option value=""><?= $block->escapeHtml(__('-- All Statuses --')) ?></option>
+                            <?php foreach ($block->getOrderStatuses() as $status): ?>
+                                <option value="<?= $block->escapeHtmlAttr($status['value']) ?>">
+                                    <?= $block->escapeHtml($status['label']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="admin__page-section-item-actions">
+                <button type="submit" 
+                        class="action-primary action-export" 
+                        title="<?= $block->escapeHtmlAttr(__('Export to CSV')) ?>">
+                    <span><?= $block->escapeHtml(__('Export to CSV')) ?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.admin__field {
+    margin-bottom: 20px;
+}
+.action-export {
+    margin-top: 20px;
+}
+</style>

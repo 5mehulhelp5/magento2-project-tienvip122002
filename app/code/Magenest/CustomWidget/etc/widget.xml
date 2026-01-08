@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget id="magenest_hello_widget"
+            class="Magenest\CustomWidget\Block\Widget\Hello">
+        <label translate="true">Magenest - Hello Widget</label>
+        <description translate="true">Simple widget with configurable title and message.</description>
+
+        <parameters>
+            <parameter name="title" xsi:type="text" sort_order="10" visible="true">
+                <label translate="true">Title</label>
+                <value>Hello</value>
+            </parameter>
+
+            <parameter name="message" xsi:type="text" sort_order="20" visible="true">
+                <label translate="true">Message</label>
+                <value>Welcome to my widget</value>
+            </parameter>
+        </parameters>
+    </widget>
+
+</widgets>
