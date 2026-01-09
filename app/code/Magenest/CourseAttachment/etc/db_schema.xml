@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    
+    <table name="magenest_course_attachment" resource="default" engine="innodb" comment="Course Attachments Table">
+        
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Attachment ID"/>
+        
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product ID link"/>
+        
+        <column xsi:type="varchar" name="label" length="255" nullable="false" comment="Attachment Label"/>
+        
+        <column xsi:type="varchar" name="file_type" length="50" nullable="false" default="file" comment="Type: file or link"/>
+        
+        <column xsi:type="varchar" name="file_path" length="255" nullable="true" comment="File Path or URL"/>
+        
+        <column xsi:type="int" name="sort_order" padding="10" unsigned="true" nullable="false" default="0" comment="Sort Order"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="FK_MAGENEST_ATTACHMENT_PRODUCT" table="magenest_course_attachment" column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+
+    </table>
+</schema>
