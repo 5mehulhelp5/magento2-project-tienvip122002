@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin" title="Magento Admin">
+                
+                <resource id="Magento_System::config" title="Stores">
+                    
+                    <resource id="Magenest_SourceTime::config" title="Source Time Configuration" sortOrder="50" />
+                    
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
