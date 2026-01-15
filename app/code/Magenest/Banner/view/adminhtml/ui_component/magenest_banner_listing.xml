@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">magenest_banner_listing.magenest_banner_listing_data_source</item>
+        </item>
+    </argument>
+    
+    <settings>
+        <spinner>magenest_banner_columns</spinner>
+        <deps>
+            <dep>magenest_banner_listing.magenest_banner_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Banner</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="magenest_banner_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">banner_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="magenest_banner_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>banner_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <columns name="magenest_banner_columns">
+        <column name="banner_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+
+        <column name="image" class="Magenest\Banner\Ui\Component\Listing\Column\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
+            <settings>
+                <label translate="true">Banner Image</label>
+                <sortable>false</sortable>
+                <hasPreview>1</hasPreview> </settings>
+        </column>
+
+        <column name="status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+
+        <actionsColumn name="actions" class="Magenest\Banner\Ui\Component\Listing\Column\BannerActions">
+            <settings>
+                <indexField>banner_id</indexField>
+            </settings>
+        </actionsColumn>
+
+        </columns>
+</listing>

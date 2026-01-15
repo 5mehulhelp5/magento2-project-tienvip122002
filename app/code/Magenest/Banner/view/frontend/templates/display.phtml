@@ -1,0 +1,11 @@
+<div id="magenest-banner-root" data-bind="scope: 'magenest-banner-component'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#magenest-banner-root": {
+            "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+        }
+    }
+</script>

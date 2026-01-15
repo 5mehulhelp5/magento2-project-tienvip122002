@@ -1,0 +1,32 @@
+.magenest-banner-item {
+    position: fixed;
+    top: 30%;
+    /* Cách đỉnh 30% */
+    z-index: 9999;
+    width: 150px;
+    /* Chiều rộng banner */
+    transition: all 0.3s;
+}
+
+.magenest-banner-item img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.banner-left {
+    left: 0;
+    right: auto;
+}
+
+.banner-right {
+    right: 0;
+    left: auto;
+}
+
+/* Ẩn khi màn hình nhỏ (Mobile) */
+@media (max-width: 768px) {
+    .magenest-banner-item {
+        display: none;
+    }
+}
