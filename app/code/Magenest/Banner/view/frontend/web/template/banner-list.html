@@ -1,0 +1,10 @@
+<div class="magenest-banner-container" data-bind="foreach: banners">
+
+    <div class="magenest-banner-item" data-bind="css: position == 'left' ? 'banner-left' : 'banner-right'">
+        <a data-bind="attr: { href: link, title: title }">
+            <img data-bind="attr: { src: image_url, alt: name }" />
+        </a>
+        <div class="banner-content" data-bind="html: content"></div>
+    </div>
+</div>
+</div>
